@@ -1,0 +1,29 @@
+@use '@/styles/tokens' as t;
+
+.root {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: t.$radius-pill;
+    background-color: t.$color-surface;
+    border: 1px solid t.$color-border;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    color: t.$color-primary;
+    .icon {
+        color: t.$color-primary;
+        font-size: 1rem;
+    }
+}
+
+.gold {
+    background-color: t.$color-gold-soft;
+    border-color: t.$color-gold;
+    color: t.$color-bronze;
+    .icon {
+        color: t.$color-gold;
+    }
+}
+

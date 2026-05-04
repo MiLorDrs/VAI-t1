@@ -1,0 +1,196 @@
+@use '@/styles/tokens' as t;
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.card {
+    background-color: t.$color-surface;
+    border: 1px solid t.$color-border;
+    border-radius: t.$radius-md;
+    box-shadow: t.$shadow-card;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+}
+
+.card.expanded {
+    border-color: t.$color-primary;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+}
+
+.rank {
+    font-weight: 700;
+    color: t.$color-text-muted;
+    width: 24px;
+    text-align: center;
+    flex: none;
+    font-size: 1.05rem;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+}
+
+.identity {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.name {
+    font-weight: 700;
+    color: t.$color-text;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.role {
+    color: t.$color-text-muted;
+    font-size: 0.85rem;
+}
+
+.dept {
+    color: t.$color-text-muted;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: none;
+}
+
+.divider {
+    width: 1px;
+    height: 36px;
+    background-color: t.$color-border;
+}
+
+.totalWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.1;
+}
+
+.totalLabel {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: t.$color-text-muted;
+    font-weight: 600;
+}
+
+.totalValue {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: t.$color-primary;
+    font-weight: 800;
+    font-size: 1.35rem;
+
+    .star {
+        color: t.$color-primary;
+        font-size: 1.4rem;
+    }
+}
+
+.expandBtn {
+    background-color: t.$color-primary-soft !important;
+    color: t.$color-primary !important;
+}
+
+.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    color: t.$color-text-muted;
+    padding: 32px;
+    background-color: t.$color-surface;
+    border: 1px solid t.$color-border;
+    border-radius: t.$radius-md;
+    box-shadow: t.$shadow-card;
+}
+
+.emptyIcon {
+    color: t.$color-primary;
+    font-size: 1.4rem !important;
+}
+
+@media (max-width: t.$bp-mobile) {
+    .row {
+        display: grid;
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: auto 1px auto;
+        grid-template-areas:
+            'rank avatar identity identity'
+            'sep  sep    sep      sep'
+            'icons icons icons toggle';
+        column-gap: 12px;
+        row-gap: 12px;
+        padding: 14px 16px;
+    }
+    .row::before {
+        content: '';
+        grid-area: sep;
+        height: 1px;
+        background-color: t.$color-border;
+    }
+    .rank {
+        grid-area: rank;
+        align-self: center;
+    }
+    .avatar {
+        grid-area: avatar;
+        align-self: center;
+    }
+    .identity {
+        grid-area: identity;
+        align-self: center;
+    }
+    .name,
+    .role {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        word-break: break-word;
+    }
+    .right {
+        display: contents;
+    }
+    .divider,
+    .totalWrap {
+        display: none;
+    }
+    .right > span:first-child {
+        grid-area: icons;
+        align-self: center;
+        justify-content: flex-start;
+    }
+    .expandBtn {
+        grid-area: toggle;
+        justify-self: end;
+        align-self: center;
+    }
+}
+

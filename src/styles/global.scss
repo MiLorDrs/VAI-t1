@@ -1,0 +1,30 @@
+@use './tokens' as t;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    min-width: 320px;
+}
+
+body {
+    background-color: t.$color-bg;
+    color: t.$color-text;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, Segoe UI, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+

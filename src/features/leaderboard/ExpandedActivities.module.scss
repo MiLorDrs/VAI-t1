@@ -1,0 +1,73 @@
+@use '@/styles/tokens' as t;
+
+.wrap {
+    border-top: 1px solid t.$color-border;
+    background-color: t.$color-bg;
+    padding: 16px 20px 20px;
+}
+
+.title {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: t.$color-text-muted;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.tableScroll {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        color: t.$color-text-muted;
+        font-weight: 700;
+        padding: 8px 12px;
+        border-bottom: 1px solid t.$color-border;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid t.$color-border;
+        font-size: 0.9rem;
+        color: t.$color-text;
+        vertical-align: middle;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tbody tr {
+        transition: background-color 0.12s ease;
+    }
+    tbody tr:hover {
+        background-color: rgba(15, 23, 42, 0.04);
+    }
+}
+
+.activityName {
+    font-weight: 600;
+}
+
+.dateCell {
+    color: t.$color-text-muted;
+}
+
+.table .pointsCell {
+    text-align: right;
+    color: t.$color-primary;
+    font-weight: 700;
+}
+
+.table th.pointsCell {
+    color: t.$color-text-muted;
+    font-weight: 700;
+}
+

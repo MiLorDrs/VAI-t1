@@ -1,0 +1,38 @@
+@use '@/styles/tokens' as t;
+
+.bar {
+    background-color: t.$color-surface;
+    border: 1px solid t.$color-border;
+    border-radius: t.$radius-md;
+    box-shadow: t.$shadow-card;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.select {
+    min-width: 160px;
+}
+
+.search {
+    flex: 1 1 280px;
+    min-width: 220px;
+}
+
+@media (max-width: t.$bp-mobile) {
+    .bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        gap: 10px;
+    }
+    .select,
+    .search {
+        width: 100%;
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+}
+

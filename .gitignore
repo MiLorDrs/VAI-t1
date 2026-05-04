@@ -3,3 +3,19 @@
 *.iml
 out
 gen
+
+# Node / Vite
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+
+# OS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
